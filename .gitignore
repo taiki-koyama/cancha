@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+dist/
+.env
+
+# Node
+node_modules/
+dist/
+.cache/
+
+# CDK
+infra/cdk.out/
+infra/.venv/
+
+# IDE
+.vscode/
+.idea/
+*.DS_Store
+
+# Test artifacts
+playwright-report/
+test-results/
