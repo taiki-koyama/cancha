@@ -231,34 +231,34 @@ StatelessStack
 
 #### 4-1. GitHub Actions（CI）
 
-- [ ] `.github/workflows/ci.yml` 作成
-- [ ] PR トリガー設定（main ブランチへの PR で発火）
-- [ ] バックエンド CI ジョブ設定（Python 環境・pytest 実行）
-- [ ] フロントエンド CI ジョブ設定（Node 環境・Vitest 実行）
-- [ ] E2E CI ジョブ設定（Playwright 実行）
-- [ ] PR マージ条件に CI 通過を必須化（GitHub Branch Protection Rules）
+- [x] `.github/workflows/ci.yml` 作成
+- [x] PR トリガー設定（main ブランチへの PR で発火）
+- [x] バックエンド CI ジョブ設定（Python 環境・pytest 実行）
+- [x] フロントエンド CI ジョブ設定（Node 環境・Vitest 実行）
+- [x] E2E CI ジョブ設定（Playwright 実行）
+- [x] PR マージ条件に CI 通過を必須化（GitHub Branch Protection Rules）
 
 #### 4-2. AWS 事前設定
 
-- [ ] AWS CodeStar Connections で GitHub リポジトリを AWS に接続
-- [ ] 接続の承認（GitHub 側で OAuth 認可）
-- [ ] CodeBuild 用 IAM ロール作成（ECR / S3 / ECS / CloudFront 権限）
+- [x] AWS CodeStar Connections で GitHub リポジトリを AWS に接続
+- [x] 接続の承認（GitHub 側で OAuth 認可）
+- [x] CodeBuild 用 IAM ロール作成（ECR / S3 / ECS / CloudFront 権限）※ CDK が自動生成
 
 #### 4-3. CodeBuild（ビルド専用）
 
-- [ ] `buildspec.yml` 作成（ビルドのみ・テストなし）
+- [x] `buildspec.yml` 作成（ビルドのみ・テストなし）
   - React：`npm run build` → S3 アップロード
   - FastAPI：Docker ビルド → ECR プッシュ
   - ECS サービス更新
   - CloudFront キャッシュ無効化
-- [ ] CodeBuild プロジェクト作成・`buildspec.yml` 紐付け
+- [x] CodeBuild プロジェクト作成・`buildspec.yml` 紐付け ※ CDK でデプロイ済み
 
 #### 4-4. CodePipeline（CD）
 
-- [ ] パイプライン作成（無料枠：1本）
-- [ ] Source ステージ：GitHub（main ブランチ・マージをトリガー）
-- [ ] Build ステージ：CodeBuild（`buildspec.yml`）
-- [ ] 環境変数設定（ECR URI / S3 バケット名 / ECS クラスター名など）
+- [x] パイプライン作成（無料枠：1本）
+- [x] Source ステージ：GitHub（main ブランチ・マージをトリガー）
+- [x] Build ステージ：CodeBuild（`buildspec.yml`）
+- [x] 環境変数設定（ECR URI / S3 バケット名 / ECS クラスター名など）
 
 #### 4-5. 動作確認
 
