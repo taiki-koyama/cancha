@@ -18,10 +18,10 @@
     "githubRepo": "cancha",
     "codestarConnectionArn": "arn:aws:codeconnections:us-east-1:816324141326:connection/adf41442-3f1f-4c1b-b708-26c8c2318d6f",
 
-    "ecrRepoName": "soccer-app-backend",
-    "frontendBucketName": "soccer-app-frontend-816324141326",
-    "ecsClusterName": "soccer-app-cluster",
-    "ecsServiceName": "soccer-app-service",
+    "ecrRepoName": "cancha-backend",
+    "frontendBucketName": "cancha-frontend-816324141326",
+    "ecsClusterName": "cancha-cluster",
+    "ecsServiceName": "cancha-service",
     "cfDistributionId": "XXXXXXXXXXXX"
   }
 }

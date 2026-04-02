@@ -3,7 +3,7 @@ version: 0.2
 # CodeBuild 環境変数（CodePipeline または CodeBuild プロジェクトで設定）
 # AWS_ACCOUNT_ID    : AWSアカウントID（例：123456789012）
 # AWS_REGION        : デプロイ先リージョン（例：ap-northeast-1）
-# ECR_REPO_NAME     : ECR リポジトリ名（例：soccer-app-backend）
+# ECR_REPO_NAME     : ECR リポジトリ名（例：cancha-backend）
 # S3_BUCKET_FRONTEND: フロントエンド配信用 S3 バケット名
 # ECS_CLUSTER       : ECS クラスター名
 # ECS_SERVICE       : ECS サービス名

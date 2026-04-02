@@ -19,7 +19,7 @@ class PipelineStack(Stack):
         # 既存リソースの参照（他スタックでデプロイ済みのもの）
         # 実際の値は cdk.json の context に設定する
         # ----------------------------------------
-        ecr_repo_name = self.node.try_get_context("ecrRepoName") or "soccer-app-backend"
+        ecr_repo_name = self.node.try_get_context("ecrRepoName") or "cancha-backend"
         frontend_bucket_name = self.node.try_get_context("frontendBucketName")
         ecs_cluster_name = self.node.try_get_context("ecsClusterName")
         ecs_service_name = self.node.try_get_context("ecsServiceName")
@@ -49,7 +49,7 @@ class PipelineStack(Stack):
         build_project = codebuild.PipelineProject(
             self,
             "BuildProject",
-            project_name="soccer-app-build",
+            project_name="cancha-build",
             environment=codebuild.BuildEnvironment(
                 build_image=codebuild.LinuxBuildImage.STANDARD_7_0,
                 privileged=True,  # Docker ビルドに必要
@@ -106,7 +106,7 @@ class PipelineStack(Stack):
         artifact_bucket = s3.Bucket(
             self,
             "ArtifactBucket",
-            bucket_name=f"soccer-app-pipeline-artifacts-{self.account}",
+            bucket_name=f"cancha-pipeline-artifacts-{self.account}",
             removal_policy=cdk.RemovalPolicy.DESTROY,
             auto_delete_objects=True,
         )
@@ -120,7 +120,7 @@ class PipelineStack(Stack):
         pipeline = codepipeline.Pipeline(
             self,
             "Pipeline",
-            pipeline_name="soccer-app-pipeline",
+            pipeline_name="cancha-pipeline",
             artifact_bucket=artifact_bucket,
             stages=[
                 # Stage 1: GitHub からソース取得

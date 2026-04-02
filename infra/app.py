@@ -7,7 +7,7 @@ app = cdk.App()
 
 PipelineStack(
     app,
-    "SoccerAppPipelineStack",
+    "CanchaPipelineStack",
     env=cdk.Environment(
         account=os.environ["CDK_DEFAULT_ACCOUNT"],
         region=os.environ.get("CDK_DEFAULT_REGION", "us-east-1"),
