@@ -22,6 +22,6 @@
     "frontendBucketName": "cancha-frontend-816324141326",
     "ecsClusterName": "cancha-cluster",
     "ecsServiceName": "cancha-service",
-    "cfDistributionId": "XXXXXXXXXXXX"
+    "cfDistributionId": "d3sz9w6o14e314"
   }
 }

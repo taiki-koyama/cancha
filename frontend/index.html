@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cancha</title>
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f4f8; }
+    .card { background: white; padding: 2rem 3rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); text-align: center; }
+    h1 { color: #2d6a4f; }
+    button { margin-top: 1rem; padding: 0.6rem 1.5rem; background: #2d6a4f; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #1b4332; }
+    #result { margin-top: 1rem; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>cancha</h1>
+    <p>インフラ動作確認</p>
+    <button onclick="callApi()">API を叩く</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    async function callApi() {
+      const el = document.getElementById('result');
+      try {
+        const res = await fetch('/api/hello');
+        const data = await res.json();
+        el.textContent = JSON.stringify(data);
+      } catch (e) {
+        el.textContent = 'エラー: ' + e.message;
+      }
+    }
+  </script>
+</body>
+</html>
