@@ -82,7 +82,7 @@ class PipelineStack(Stack):
 
         # CodeBuild に必要な IAM 権限を付与
         repo.grant_pull_push(build_project)
-        frontend_bucket.grant_put(build_project)
+        frontend_bucket.grant_read_write(build_project)
 
         build_project.add_to_role_policy(
             iam.PolicyStatement(
@@ -134,6 +134,7 @@ class PipelineStack(Stack):
                             branch="main",
                             connection_arn=codestar_connection_arn,
                             output=source_output,
+                            trigger_on_push=True,
                         )
                     ],
                 ),
