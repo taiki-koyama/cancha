@@ -10,7 +10,7 @@ PipelineStack(
     "SoccerAppPipelineStack",
     env=cdk.Environment(
         account=os.environ["CDK_DEFAULT_ACCOUNT"],
-        region=os.environ.get("CDK_DEFAULT_REGION", "ap-northeast-1"),
+        region=os.environ.get("CDK_DEFAULT_REGION", "us-east-1"),
     ),
 )
 

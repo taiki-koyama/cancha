@@ -16,10 +16,10 @@
 
     "githubOwner": "taiki-koyama",
     "githubRepo": "cancha",
-    "codestarConnectionArn": "arn:aws:codestar-connections:ap-northeast-1:YOUR_ACCOUNT_ID:connection/XXXXXXXX",
+    "codestarConnectionArn": "arn:aws:codeconnections:us-east-1:816324141326:connection/adf41442-3f1f-4c1b-b708-26c8c2318d6f",
 
     "ecrRepoName": "soccer-app-backend",
-    "frontendBucketName": "soccer-app-frontend-YOUR_ACCOUNT_ID",
+    "frontendBucketName": "soccer-app-frontend-816324141326",
     "ecsClusterName": "soccer-app-cluster",
     "ecsServiceName": "soccer-app-service",
     "cfDistributionId": "XXXXXXXXXXXX"
