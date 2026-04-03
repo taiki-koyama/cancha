@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "mkdir -p dist && cp index.html dist/index.html",
-    "dev": "npx serve ."
+    "dev": "npx serve .",
+    "test": "echo 'frontend: no unit tests yet' && exit 0"
   }
 }
