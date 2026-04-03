@@ -57,6 +57,7 @@ phases:
         import json, sys
         d = json.load(sys.stdin)['taskDefinition']
         d['containerDefinitions'][0]['image'] = '$ECR_URI:$IMAGE_TAG'
+        d['containerDefinitions'][0].pop('command', None)
         for k in ['taskDefinitionArn','revision','status','requiresAttributes','compatibilities','registeredAt','registeredBy']:
             d.pop(k, None)
         print(json.dumps(d))
