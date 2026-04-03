@@ -8,8 +8,8 @@
     body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f4f8; }
     .card { background: white; padding: 2rem 3rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); text-align: center; }
     h1 { color: #2d6a4f; }
-    button { margin-top: 1rem; padding: 0.6rem 1.5rem; background: #2d6a4f; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
-    button:hover { background: #1b4332; }
+    button { margin-top: 1rem; padding: 0.6rem 1.5rem; background: #000; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #333; }
     #result { margin-top: 1rem; color: #555; }
   </style>
 </head>
@@ -26,7 +26,7 @@
       try {
         const res = await fetch('/api/hello');
         const data = await res.json();
-        el.textContent = JSON.stringify(data);
+        el.textContent = 'バックエンドと繋がっています';
       } catch (e) {
         el.textContent = 'エラー: ' + e.message;
       }
