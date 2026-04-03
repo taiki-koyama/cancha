@@ -89,8 +89,21 @@ class PipelineStack(Stack):
                 actions=[
                     "ecs:UpdateService",
                     "ecs:DescribeServices",
+                    "ecs:DescribeTaskDefinition",
+                    "ecs:RegisterTaskDefinition",
                 ],
                 resources=["*"],
+            )
+        )
+        build_project.add_to_role_policy(
+            iam.PolicyStatement(
+                actions=["iam:PassRole"],
+                resources=["*"],
+                conditions={
+                    "StringLike": {
+                        "iam:PassedToService": "ecs-tasks.amazonaws.com"
+                    }
+                },
             )
         )
         build_project.add_to_role_policy(
@@ -121,6 +134,7 @@ class PipelineStack(Stack):
             self,
             "Pipeline",
             pipeline_name="cancha-pipeline",
+            pipeline_type=codepipeline.PipelineType.V2,
             artifact_bucket=artifact_bucket,
             stages=[
                 # Stage 1: GitHub からソース取得
