@@ -302,6 +302,7 @@ class InfraStack(Stack):
         distribution = cloudfront.Distribution(
             self, "Distribution",
             comment="cancha-cdn",
+            default_root_object="index.html",
             default_behavior=cloudfront.BehaviorOptions(
                 origin=origins.S3BucketOrigin.with_origin_access_control(
                     frontend_bucket, origin_access_control=oac

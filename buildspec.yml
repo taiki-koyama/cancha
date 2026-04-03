@@ -49,12 +49,24 @@ phases:
       - echo "=== S3 アップロード ==="
       - aws s3 sync frontend/dist s3://$S3_BUCKET_FRONTEND --delete
 
-      # --- ECS サービス更新 ---
-      - echo "=== ECS ローリングデプロイ ==="
-      - aws ecs update-service
-          --cluster $ECS_CLUSTER
-          --service $ECS_SERVICE
-          --force-new-deployment
+      # --- ECS タスク定義更新 & サービス更新 ---
+      - echo "=== ECS タスク定義を新イメージで更新 ==="
+      - |
+        CURRENT_TASK_DEF=$(aws ecs describe-task-definition --task-definition cancha-backend --region $AWS_REGION)
+        NEW_TASK_DEF=$(echo "$CURRENT_TASK_DEF" | python3 -c "
+        import json, sys
+        d = json.load(sys.stdin)['taskDefinition']
+        d['containerDefinitions'][0]['image'] = '$ECR_URI:$IMAGE_TAG'
+        for k in ['taskDefinitionArn','revision','status','requiresAttributes','compatibilities','registeredAt','registeredBy']:
+            d.pop(k, None)
+        print(json.dumps(d))
+        ")
+        NEW_TASK_DEF_ARN=$(aws ecs register-task-definition --region $AWS_REGION --cli-input-json "$NEW_TASK_DEF" --query 'taskDefinition.taskDefinitionArn' --output text)
+        echo "New task def: $NEW_TASK_DEF_ARN"
+        aws ecs update-service \
+          --cluster $ECS_CLUSTER \
+          --service $ECS_SERVICE \
+          --task-definition $NEW_TASK_DEF_ARN \
           --region $AWS_REGION
 
       # --- CloudFront キャッシュ無効化 ---
