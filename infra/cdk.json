@@ -16,12 +16,12 @@
 
     "githubOwner": "taiki-koyama",
     "githubRepo": "cancha",
-    "codestarConnectionArn": "arn:aws:codeconnections:us-east-1:816324141326:connection/adf41442-3f1f-4c1b-b708-26c8c2318d6f",
+    "codestarConnectionArn": "arn:aws:codeconnections:us-east-1:816324141326:connection/32e9c589-b42d-4dd5-a134-8194923a49e4",
 
     "ecrRepoName": "cancha-backend",
     "frontendBucketName": "cancha-frontend-816324141326",
     "ecsClusterName": "cancha-cluster",
     "ecsServiceName": "cancha-service",
-    "cfDistributionId": "d3sz9w6o14e314"
+    "cfDistributionId": "EGC6FVJSJF3JD"
   }
 }
