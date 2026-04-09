@@ -29,7 +29,7 @@
     <div class="chat-box">
       <div class="chat-log" id="chat-log"></div>
       <div class="chat-input-row">
-        <input id="chat-input" type="text" placeholder="メッセージを入力..." onkeydown="if(event.key==='Enter') sendChat()" />
+        <input id="chat-input" type="text" placeholder="メッセージを入力..." onkeydown="if(event.key==='Enter' && !event.isComposing) sendChat()" />
         <button onclick="sendChat()">送信</button>
       </div>
     </div>
